@@ -83,3 +83,43 @@
 @media(max-width:520px){.header-event-location{max-width:205px;font-size:9px}.header-event-location a{font-size:9px}.header-actions{gap:10px}.site-header{height:auto;min-height:75px;padding:10px 16px}.header-links{top:100%}}
 
 .wedding-rings{display:block;width:48px;height:36px;flex-shrink:0}.dua-symbol .wedding-rings{width:72px;height:54px;margin:0 auto 18px}.cover-emblem .wedding-rings{width:75%;height:auto}
+
+/* Give the cover's text and Arabic diacritics room to breathe. */
+.cover-bismillah{padding-bottom:18px;margin-bottom:12px}
+.cover-date{display:flex;align-items:center;justify-content:center;gap:14px;letter-spacing:.14em;white-space:nowrap}
+@media(max-width:520px){
+  .cover-screen{place-items:safe center}
+  .cover-border-inner{padding:36px 16px}
+  .cover-top{gap:12px}
+  .cover-bismillah{font-size:clamp(25px,7.4vw,34px);line-height:1.9;margin:16px auto 14px;padding-bottom:18px}
+  .cover-translit{max-width:260px;line-height:2;letter-spacing:.12em}
+  .cover-content>.ornament{margin:18px auto 20px}
+  .cover-intro{font-size:clamp(19px,5.4vw,24px);line-height:1.35;margin:0 auto 20px;text-wrap:balance}
+  .cover-names{font-size:clamp(60px,17vw,78px);line-height:1;gap:4px}
+  .cover-names em{font-size:34px;line-height:1;margin:4px 0}
+  .cover-date{margin-top:24px;font-size:11px;gap:12px;letter-spacing:.12em}
+  .cover-location{margin:10px 0 26px}
+  .cover-foot{margin:24px auto 0;max-width:240px;line-height:1.8}
+}
+
+/* Balanced spacing for the invitation introduction. */
+.hero-main{width:100%;min-width:0}
+.hero-arabic{line-height:2;margin:0 auto 12px}
+.hero-main>.eyebrow{line-height:1.9;text-wrap:balance}
+.hero-main>.ornament{margin:22px auto}
+.hero-intro{max-width:620px;margin:20px auto 0;line-height:1.5;text-wrap:balance}
+.hero-names{margin-top:30px;gap:12px;line-height:1.25}
+.hero-tagline{max-width:600px;margin:30px auto 0;line-height:1.45;text-wrap:balance}
+@media(max-width:520px){
+  .hero-main{padding:52px 28px 64px}
+  .hero-arabic{font-size:clamp(24px,6.6vw,32px);line-height:2;margin-bottom:12px}
+  .hero-main>.eyebrow{font-size:8px;letter-spacing:.1em;max-width:280px;margin:0 auto}
+  .hero-main>.ornament{margin:20px auto}
+  .hero-kicker{font-size:8px;letter-spacing:.16em;line-height:1.9}
+  .hero-intro{max-width:300px;font-size:20px;line-height:1.5;margin-top:18px}
+  .hero-names{font-size:clamp(28px,7.7vw,40px);margin-top:26px;gap:14px}
+  .hero-tagline{font-size:22px;max-width:290px;margin-top:28px;line-height:1.5}
+  .hero-date-rule{margin-top:28px;gap:8px}
+  .hero-date-rule p{font-size:8px;line-height:2;letter-spacing:.02em;text-wrap:balance}
+  .scroll-cue{margin-top:34px;font-size:9px;letter-spacing:.12em}
+}

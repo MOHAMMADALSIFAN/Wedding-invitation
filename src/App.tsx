@@ -46,7 +46,7 @@ function useCountdown() {
 function makeCalendar() {
   const calendarStamp = (iso: string) => new Date(iso).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
   const escapeIcs = (value: string) => value.replace(/\\/g, '\\\\').replace(/,/g, '\\,').replace(/;/g, '\\;').replace(/\n/g, '\\n')
-  const content = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Alsifan Haleema Invitation//EN', 'BEGIN:VEVENT', `UID:alsifan-haleema-20270117@wedding.invitation`, `DTSTAMP:${calendarStamp(new Date().toISOString())}`, `DTSTART:${calendarStamp(info.dateTime)}`, `DTEND:${calendarStamp(info.dateTimeEnd)}`, `SUMMARY:${escapeIcs(`Nikkah of ${info.groom} & ${info.bride}`)}`, `LOCATION:${escapeIcs(`${info.venue}, ${info.address}`)}`, 'DESCRIPTION:Nikkah at 11:00 AM followed by banquet. We look forward to celebrating with you.', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n')
+  const content = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Alsifan Haleema Invitation//EN', 'BEGIN:VEVENT', `UID:alsifan-haleema-20270117@wedding.invitation`, `DTSTAMP:${calendarStamp(new Date().toISOString())}`, `DTSTART:${calendarStamp(info.dateTime)}`, `DTEND:${calendarStamp(info.dateTimeEnd)}`, `SUMMARY:${escapeIcs(`Nikkah of ${info.groom} & ${info.bride}`)}`, `LOCATION:${escapeIcs(`${info.venue}, ${info.address}`)}`, 'DESCRIPTION:Nikkah at 11:00 AM SGT. Banquet starts after 12:00 PM SGT. We look forward to celebrating with you.', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n')
   const file = new Blob([content], { type: 'text/calendar;charset=utf-8' })
   const url = URL.createObjectURL(file)
   const a = document.createElement('a'); a.href = url; a.download = 'Alsifan-Haleema-Nikkah.ics'; a.click()
@@ -92,7 +92,7 @@ function App() {
         <Ornament />
         <p className="cover-intro animate-rise reveal-delay-2">With love, we begin our forever</p>
         <h1 className="cover-names animate-rise reveal-delay-2"><span>Alsifan</span><em>&</em><span>Haleema</span></h1>
-        <p className="cover-date animate-rise reveal-delay-3">17 · JANUARY · 2027</p>
+        <p className="cover-date animate-rise reveal-delay-3"><span>17</span><span aria-hidden="true">·</span><span>JANUARY</span><span aria-hidden="true">·</span><span>2027</span></p>
         <p className="cover-location animate-rise reveal-delay-3">SINGAPORE</p>
         <button className="open-button animate-rise reveal-delay-4" onClick={openInvitation}>OPEN INVITATION <ArrowRight size={17} /></button>
         <p className="cover-foot">A BEAUTIFUL BEGINNING, IN SHAA ALLAH</p>
@@ -113,7 +113,6 @@ function App() {
       <section id="home" className="hero-section">
         <StarPattern className="page-pattern hero-pattern" />
         <div className="hero-ornamental-frame"><CoverDecoration /></div>
-        <div className="hero-decor hero-decor-left" aria-hidden="true">✳</div><div className="hero-decor hero-decor-right" aria-hidden="true">✳</div>
         <div className="hero-main reveal">
           <p className="arabic hero-arabic" lang="ar" dir="rtl">{arabicBismillah}</p>
           <p className="eyebrow">BISMILLAHIR RAHMANIR RAHEEM</p>
@@ -125,7 +124,7 @@ function App() {
             <em>&</em>
             <span className="hero-person-name">Haleema <strong>Thasneem</strong></span>
           </h2>
-          <p className="hero-tagline">Two souls, one beautiful journey.</p>
+          <p className="hero-tagline">Two souls, one beautiful journey</p>
           <div className="hero-date-rule"><span>✦</span><p>SUNDAY <b>·</b> 17 JANUARY 2027 <b>·</b> 11:00 AM</p><span>✦</span></div>
           <button className="scroll-cue" onClick={() => goTo('invitation')}>SCROLL TO DISCOVER <ArrowDown size={16}/></button>
         </div>
@@ -167,7 +166,7 @@ function App() {
           <div className="event-panel"><div className="event-frame">
             <div className="event-topline">YOU ARE WARMLY INVITED</div><div className="event-title">Nikkah</div><div className="event-calendar"><span className="event-day">17</span><div><span className="event-month">JANUARY</span><span className="event-year">2027</span></div></div>
             <div className="event-meta"><div><CalendarDays size={19}/><span>Sunday</span></div><div><Clock3 size={19}/><span>11:00 AM SGT</span></div></div>
-            <div className="event-divider"/><MapPin className="location-icon" size={27}/><h3>{info.venue}</h3><p className="venue-address">{info.address}</p><p className="banquet-note">Followed by banquet</p>
+            <div className="event-divider"/><MapPin className="location-icon" size={27}/><h3>{info.venue}</h3><p className="venue-address">{info.address}</p><p className="banquet-note">Banquet starts after 12:00 PM</p>
             <div className="event-buttons"><a className="btn btn-gold" href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={17}/> GET DIRECTIONS</a><button className="btn btn-outline" onClick={makeCalendar}><CalendarDays size={17}/> ADD TO CALENDAR</button></div>
           </div></div>
           <p className="time-note">All timings are Singapore time (SGT).</p>
