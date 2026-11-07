@@ -3,7 +3,7 @@ export const invitation = {
   groom: 'Mohammad Alsifan',
   groomQualification: 'B.Eng (Hons)',
   bride: 'Haleema Thasneem',
-  brideQualification: 'B.Sc. (Hons.)',
+  brideQualification: 'B.Sc. (Hons)',
   groomParents: 'Mr. Mohammad Najubudeen & Mrs. N. Meharunnisa',
   brideParents: 'Mr. A. Anvar Ali & Mrs. Naceera Begum',
   dateLabel: 'Sunday, 17 January 2027',
