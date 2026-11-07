@@ -10,6 +10,13 @@ const arabicDua = 'بَارَكَ اللَّهُ لَكَ وَبَارَكَ ع�
 function Ornament({ light = false }: { light?: boolean }) {
   return <div className={`ornament ${light ? 'ornament-light' : ''}`} aria-hidden="true"><span /><i>✦</i><span /></div>
 }
+function WeddingRings() {
+  return <svg className="wedding-rings" viewBox="0 0 64 48" fill="none" aria-hidden="true">
+    <circle cx="24" cy="28" r="15" stroke="currentColor" strokeWidth="1.8" />
+    <circle cx="40" cy="28" r="15" stroke="currentColor" strokeWidth="1.8" />
+    <path d="m19 9 5-6 5 6-5 6-5-6Z" fill="var(--cream)" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+  </svg>
+}
 function StarPattern({ className = '' }: { className?: string }) {
   return <div className={`star-pattern ${className}`} aria-hidden="true" />
 }
@@ -79,7 +86,7 @@ function App() {
     {!opened && <div className="cover-screen" role="dialog" aria-label="Wedding invitation cover">
       <StarPattern className="cover-pattern" />
       <div className="cover-border"><div className="cover-border-inner"><CoverDecoration /><div className="cover-content">
-        <div className="cover-top animate-rise"><span className="tiny-cap">THE NIKKAH INVITATION</span><span className="eight-star">۞</span></div>
+        <div className="cover-top animate-rise"><span className="tiny-cap">THE NIKKAH INVITATION</span><span className="cover-emblem"><WeddingRings /></span></div>
         <p className="arabic cover-bismillah animate-rise reveal-delay-1" lang="ar" dir="rtl">{arabicBismillah}</p>
         <p className="tiny-cap cover-translit animate-rise reveal-delay-1">IN THE NAME OF ALLAH, THE MOST GRACIOUS, THE MOST MERCIFUL</p>
         <Ornament />
@@ -169,7 +176,7 @@ function App() {
 
       <section className="countdown-section section-pad"><StarPattern className="page-pattern" /><div className="content-wrap"><p className="eyebrow">UNTIL OUR FOREVER BEGINS</p><h2 className="section-heading">Counting down <em>the days.</em></h2><div className="countdown-grid">{Object.entries(countdown).map(([unit, number]) => <div className="count-unit" key={unit}><strong>{String(number).padStart(2, '0')}</strong><span>{unit.toUpperCase()}</span></div>)}</div><p className="countdown-note">Every moment brings us closer, In Shaa Allah.</p></div></section>
 
-      <section id="dua" className="dua-section section-pad"><StarPattern className="page-pattern" /><div className="content-wrap"><div className="section-marker">03 <span>—</span> A PRAYER FOR THE COUPLE</div><div className="dua-symbol">۞</div><p className="eyebrow">KEEP US IN YOUR DUAS</p><h2 className="section-heading">Joined together <em>in goodness.</em></h2><p className="arabic dua-arabic" lang="ar" dir="rtl">{arabicDua}</p><p className="dua-translit">Baarakallaahu laka, wa baaraka alaika,<br/>wa jama'a bainakumaa fee khair.</p><p className="dua-translation">“May Allah bless you, shower His blessings upon you, and join you together in goodness.”</p><Ornament /><p className="ameen">Ameen.</p></div></section>
+      <section id="dua" className="dua-section section-pad"><StarPattern className="page-pattern" /><div className="content-wrap"><div className="section-marker">03 <span>—</span> A PRAYER FOR THE COUPLE</div><div className="dua-symbol"><WeddingRings /></div><p className="eyebrow">KEEP US IN YOUR DUAS</p><h2 className="section-heading">Joined together <em>in goodness.</em></h2><p className="arabic dua-arabic" lang="ar" dir="rtl">{arabicDua}</p><p className="dua-translit">Baarakallaahu laka, wa baaraka alaika,<br/>wa jama'a bainakumaa fee khair.</p><p className="dua-translation">“May Allah bless you, shower His blessings upon you, and join you together in goodness.”</p><Ornament /><p className="ameen">Ameen.</p></div></section>
 
       <footer className="footer"><StarPattern className="footer-pattern"/><div className="footer-content"><p className="eyebrow eyebrow-gold">WITH LOVE & GRATITUDE</p><h2>Alsifan <em>&</em> Haleema</h2><p>We look forward to sharing this blessed day with you.</p><div className="footer-actions"><button onClick={shareInvite}><Share2 size={16}/>{copyDone ? 'LINK COPIED' : 'SHARE INVITATION'}</button><button onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setOpened(false) }}><ChevronUp size={16}/> VIEW COVER AGAIN</button></div><span className="footer-last">17 JANUARY 2027 · SINGAPORE · IN SHAA ALLAH</span></div></footer>
     </main>
