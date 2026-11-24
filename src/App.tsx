@@ -46,7 +46,7 @@ function useCountdown() {
 function makeCalendar() {
   const calendarStamp = (iso: string) => new Date(iso).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
   const escapeIcs = (value: string) => value.replace(/\\/g, '\\\\').replace(/,/g, '\\,').replace(/;/g, '\\;').replace(/\n/g, '\\n')
-  const content = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Alsifan Haleema Invitation//EN', 'BEGIN:VEVENT', `UID:alsifan-haleema-20270117@wedding.invitation`, `DTSTAMP:${calendarStamp(new Date().toISOString())}`, `DTSTART:${calendarStamp(info.dateTime)}`, `DTEND:${calendarStamp(info.dateTimeEnd)}`, `SUMMARY:${escapeIcs(`Nikkah of ${info.groom} & ${info.bride}`)}`, `LOCATION:${escapeIcs(`${info.venue}, ${info.address}`)}`, 'DESCRIPTION:Nikkah at 11:00 AM SGT. Banquet starts after 12:00 PM SGT. We look forward to celebrating with you.', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n')
+  const content = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Alsifan Haleema Invitation//EN', 'BEGIN:VEVENT', `UID:alsifan-haleema-20270117@wedding.invitation`, `DTSTAMP:${calendarStamp(new Date().toISOString())}`, `DTSTART:${calendarStamp(info.dateTime)}`, `DTEND:${calendarStamp(info.dateTimeEnd)}`, `SUMMARY:${escapeIcs(`Nikkah of ${info.groom} & ${info.bride}`)}`, `LOCATION:${escapeIcs(`${info.venue}, ${info.address}`)}`, 'DESCRIPTION:Nikkah at 11:00 AM SGT. Banquet starts at 12:00 PM SGT. We look forward to celebrating with you.', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n')
   const file = new Blob([content], { type: 'text/calendar;charset=utf-8' })
   const url = URL.createObjectURL(file)
   const a = document.createElement('a'); a.href = url; a.download = 'Alsifan-Haleema-Nikkah.ics'; a.click()
@@ -165,8 +165,8 @@ function App() {
           <p className="details-lead">Nikkah will be solemnized on</p>
           <div className="event-panel"><div className="event-frame">
             <div className="event-topline">YOU ARE WARMLY INVITED</div><div className="event-title">Nikkah</div><div className="event-calendar"><span className="event-day">17</span><div><span className="event-month">JANUARY</span><span className="event-year">2027</span></div></div>
-            <div className="event-meta"><div><CalendarDays size={19}/><span>Sunday</span></div><div><Clock3 size={19}/><span>11:00 AM SGT</span></div></div>
-            <div className="event-divider"/><MapPin className="location-icon" size={27}/><h3>{info.venue}</h3><p className="venue-address">{info.address}</p><p className="banquet-note">Banquet starts after 12:00 PM</p>
+            <div className="event-meta"><div><CalendarDays size={19}/><span>Sunday</span></div><div><Clock3 size={19}/><span>Nikkah at 11:00 AM SGT</span></div></div>
+            <div className="event-divider"/><MapPin className="location-icon" size={27}/><h3>{info.venue}</h3><p className="venue-address">{info.address}</p><p className="banquet-note">Banquet starts at 12:00 PM</p>
             <div className="event-buttons"><a className="btn btn-gold" href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={17}/> GET DIRECTIONS</a><button className="btn btn-outline" onClick={makeCalendar}><CalendarDays size={17}/> ADD TO CALENDAR</button></div>
           </div></div>
           <p className="time-note">All timings are Singapore time (SGT).</p>
