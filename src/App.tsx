@@ -164,7 +164,7 @@ function App() {
           <p className="eyebrow eyebrow-gold">IN SHAA ALLAH</p><h2 className="section-heading section-heading-light">The blessed <em>occasion.</em></h2><Ornament light/>
           <p className="details-lead">Nikkah will be solemnized on</p>
           <div className="event-panel"><div className="event-frame">
-            <div className="event-topline">YOU ARE WARMLY INVITED</div><div className="event-title">Nikkah</div><div className="event-calendar"><span className="event-day">17</span><div><span className="event-month">JANUARY</span><span className="event-year">2027</span></div></div>
+            <div className="event-topline">YOU ARE WARMLY INVITED</div><div className="event-title">Nikkah &amp; Reception</div><div className="event-calendar"><span className="event-day">17</span><div><span className="event-month">JANUARY</span><span className="event-year">2027</span></div></div>
             <div className="event-meta"><div><CalendarDays size={19}/><span>Sunday</span></div><div><Clock3 size={19}/><span>Nikkah at 11:00 AM SGT</span></div></div>
             <div className="event-divider"/><MapPin className="location-icon" size={27}/><h3>{info.venue}</h3><p className="venue-address">{info.address}</p><p className="banquet-note">Banquet starts at 12:00 PM</p>
             <div className="event-buttons"><a className="btn btn-gold" href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={17}/> GET DIRECTIONS</a><button className="btn btn-outline" onClick={makeCalendar}><CalendarDays size={17}/> ADD TO CALENDAR</button></div>
